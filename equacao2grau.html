@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- CONFIGURAÇÃO DA TABELA DE CARACTERES -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equação do 2º grau</title>
+    <style>
+        /*
+            px - pixel
+            % - percentual
+            em -     
+        */
+        body {
+            width: 820px;
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">
+        Cálculo das raízes reais de uma equação de 2º Grau
+    </h1>
+    <h2>
+        Valores das raízes reais
+    </h2>
+    <fieldset>
+        <legend>Coeficientes</legend>
+        <p>
+            A = <input name="nValorA" type="number" step = "0.1" size="5" maxlength="5">
+        </p>
+        <p>
+            B = <input name="nValorB" type="number" step = "0.1" size="5" maxlength="5">
+        </p>
+        <p>
+            C = <input name="nValorC" type="number" step = "0.1" size="5" maxlength="5">
+        </p>
+    </fieldset>
+    <p style="text-align: center;">
+        <input name="bCalcular" type="button" value="Calcular">
+    </p>
+    <fieldset>
+        <legend>Valores calculados</legend>
+        <p>
+            Delta = <input name="valorD" type="number" step = "0.1" size="5" maxlength="5" readonly>
+        </p>
+        <p>
+            x1 = <input name="valorX1" type="number" step = "0.1" size="10" maxlength="10" readonly>
+        </p>
+        <p>
+            x2 = <input name="valorX2" type="number" step = "0.1" size="10" maxlength="10" readonly>
+        </p>
+    </fieldset>
+</body>
+</html>
