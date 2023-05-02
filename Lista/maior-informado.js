@@ -11,10 +11,13 @@ c = parseInt(leia("V3 = "))
 
 maior = a
 
-if (b > maior)
+if (b > maior) {
     maior = b
-else if (c > maior)
+}
+
+if (c > maior) {
     maior = c
+}
 
 console.log("O maior número informado é ", maior)
             
