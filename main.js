@@ -1,66 +1,73 @@
+function menu(titulo, ...opcoes) {
+    console.log(`\n= ${titulo.toUpperCase()} =>\n`)
+
+    for (let x = 0; x < opcoes.length; x++) {
+        console.log(`   ( ${x+1} )   ${opcoes[x]}`)
+    }
+
+    console.log()
+}
+
 leia = require('prompt-sync')()
 
-let opcao1
-let opcao2
+let opcaoMenu
+let codLanche
+let contPedidos = 0
 let totalPedido = 0
-let totalExpediente = 0
-let qtdLanches = [0, 0, 0]
-let nomeLanches = ['Hamburguer', 'Eggs-Burger', 'X-Tudo']
+let receitaDia = 0
 
 
-console.log("\n==================== FRANK'S LANCHES =================== \n")
+let nomesLanches = ['Hamburguer', 'Eggs-Burger', 'X-Tudo', 'Refrigerante']
+let precoLanches = [9.99, 12.99, 15.99, 4.99]
+let qtdLanches = [0, 0, 0, 0]
+let vetorPedidos = []
 
 while(true) {
-    console.log(" ----- Menu ----> \n")
-    console.log("( 1 ) Realizar Pedido \n( 2 ) Encerrar Expediente\n")
-    opcao1 = leia("Opção : ")
+    menu("frank's lanches", "Realizar Pedido", "Encerrar Expediente")
+    opcaoMenu = leia("  Opção : ")
     
-    if (opcao1 == 2) {
+    if (opcaoMenu == 2) {
         break }
     
     console.clear()
     
     while(true) {
-        console.log(" --- Cardápio --> \n ")
-        console.log("( 1 ) Hambúrguer ----- $5,00 \n( 2 ) Eggs-Burger ---- $6,00 \n( 3 ) X-Tudo --------- $7,00 \n( 4 ) Encerrar pedido \n")
-        opcao2 = leia("Opção : ")
-        
-        
-        switch (opcao2) {
-            case "1":
-                totalPedido += 5
-                qtdLanches[1] += 1
+        menu("cardápio", "Hambúrguer ------- $9.99", "Eggs-Burger ------ $12.99", "X-Tudo ----------- $15.99", "Refrigerante ----- $4.99", "Encerrar Pedido")
+        codLanche = leia("  Opção : ")
 
-                break
+        if (codLanche == qtdLanches.length + 1) {
+            break
 
-            case "2":
-                totalPedido += 6
-                qtdLanches[2] += 1
-                break
-
-            case "3":
-                totalPedido += 7
-                qtdLanches[3] += 1
-                break       
-        }
-
-        if (opcao2 == 4) { 
-            break }
-        console.log(`\n-> Total do Pedido: ${totalPedido}\n`)
+            } else {
+                totalPedido += precoLanches[codLanche - 1]
+                qtdLanches[codLanche - 1]++
+                }
 
         }
     
-    totalExpediente += totalPedido
+    receitaDia += totalPedido
+    vetorPedidos[contPedidos] = totalPedido
     totalPedido = 0
+    contPedidos++
 
     console.clear()
 }
 
+console.log(`\n= RELATÓRIO =>\n`)
 
-console.log(`\n-- RELATÓRIO -->\n`)
-console.log(`> Total Expediente : ${totalExpediente}\n`)
 console.log(`> Lanches Pedidos: \n`)
 
 for (let x = 0; x <= 2; x++) {
-    console.log(`${nomeLanches[x]} = ${qtdLanches[x]}`)
+    console.log(`   ${nomesLanches[x]} = ${qtdLanches[x]}`)
 }
+
+console.log("\n> Receita do Expediente: \n")
+
+for (let x = 0; x < contPedidos; x++) {
+    console.log(`   Pedido ${x+1} = R$${vetorPedidos[x]}`)
+    if (x == contPedidos - 1) {
+        console.log(`\n   Total : R$${receitaDia}\n`)
+    }
+}
+
+console.log()
