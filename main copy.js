@@ -145,7 +145,6 @@ while (true) {
                         totalPedido += precosLanches[codLanche - 1]
                         vetorQuantidade[codLanche - 1]++
                         }
-    
                 }
             
             receitaDia += totalPedido
@@ -162,5 +161,3 @@ while (true) {
             return
         }
     }
-
-    

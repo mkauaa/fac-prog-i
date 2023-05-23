@@ -27,11 +27,11 @@ function exibeRelatorio() {
     console.log("\n> Receita do Expediente: \n")
     
     for (let x = 0; x < contPedidos; x++) {
-        console.log(`   Pedido ${x+1} = R$${vetorPedidos[x]}`)
+        console.log(`   Pedido ${x+1} = R$${vetorPedidos[x].toFixed(2)}`)
     
         // Imprime o total do expediente após o último pedido.
         if (x == contPedidos - 1) {
-            console.log(`\n   Total : R$${receitaDia}\n`)
+            console.log(`\n   Total : R$${receitaDia.toFixed(2)}\n`)
             }
         }       
 }
@@ -112,8 +112,8 @@ while (true) {
     switch (opcaoAcesso) {
         case "1":
             realizaPedido()
-            console.log(`Pedido Nº${contPedidos} anotado!`)
-
+            console.log(`Pedido Nº ${contPedidos} anotado!`)
+            console.log(`Custará R$${vetorPedidos[contPedidos-1].toFixed(2)}.`)
             break
 
         case "2":  
