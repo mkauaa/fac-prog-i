@@ -1,3 +1,11 @@
+function Cliente() {
+    return {
+    nome: undefined,
+    telefone: undefined,
+    endereço: undefined
+    }
+}
+
 function menu(titulo, ...opcoes) {
     console.log(`\n= ${titulo.toUpperCase()} =>\n`)
 
@@ -85,28 +93,25 @@ function realizaPedido() {
             console.clear()
 }
 
-function Pedido(cliente, itens, valores) {
-    this.cliente,
-    itens: [],
-    valores: []
-    }
-
-    addItem = (Pedido, item) = {(1)}
-
 leia = require('prompt-sync')()
 
-let opcaoMenu
+let opcaoMenu 
 let codLanche
 let contPedidos = 0
 let totalPedido = 0
 let receitaDia = 0
 let senha = 1234
+let codCliente = 0
 
-let nomesLanches = ['Hamburguer', 'Eggs-Burger', 'X-Tudo', 'Refrigerante']
-let precosLanches = [9.99, 12.99, 15.99, 4.99]
-let vetorQuantidade = [0, 0, 0, 0]
+let vetorLanches = [
+    ["Hambúrguer", 9.99, 0],
+    ["Eggs-Burger", 12.99, 0],
+    ["X-Tudo", 15.99, 0],
+    ["Refrigerante", 4.99, 0]
+  ]
+
 let vetorPedidos = []
-let qtdLanches = vetorQuantidade.length
+let qtdLanches = vetorLanches.length
 
 
 console.clear()
@@ -132,31 +137,49 @@ while (true) {
 
         case "2":  
             console.log() 
-            autenticacao()
+            //autenticacao()
 
             while(true) {
                 console.clear()
 
-                menu("frank's lanches", "Realizar Pedido", "Encerrar Expediente")
+                menu("frank's lanches", "Realizar Pedido", "Cadastrar Cliente", "Exibir Cadastros", "Encerrar Expediente")
         
                 do {
                     opcaoMenu = leia("  Opção : ")
                     
-                    if (foraDoIntervalo(opcaoMenu, 1, 2)) {
+                    if (foraDoIntervalo(opcaoMenu, 1, 4)) {
                         console.log("\nOpção inválida! Tente novamente...\n")
                         }
         
-                    } while (foraDoIntervalo(opcaoMenu, 1, 2))
+                    } while (foraDoIntervalo(opcaoMenu, 1, 4))
 
                 console.clear()
                 
                 if (opcaoMenu == 1) {
                     realizaPedido()
-                } else if (opcaoMenu == 2) {
+
+                }
+                
+                if (opcaoMenu == 2) {
+                    codCliente += 1
+                    novoCliente = new Object(Cliente)
+                    codCliente = novoCliente
+                    codCliente.nome = leia("Nome: ")
+                    codCliente.telefone = leia("Telefone: ")
+                    codCliente.endereço = leia("Endereço: ")
+
+                } 
+                
+                if (opcaoMenu == 3) {
+                    console.log("Oi")
+                    
+                }
+                
+                if (opcaoMenu == 4) {
                     exibeRelatorio()
                     console.log("\nPrograma encerrado!\n")
                     return
-                }
+                } 
             }
 
         case "3":
