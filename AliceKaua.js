@@ -97,6 +97,8 @@ let matrizLanches = [
   ]
 let qtdLanches = matrizLanches.length
 let vetorPedidos = []
+const filtrarMaiorde50 = valor => valor > 20
+let vetorPedidosMap = vetorPedidos.filter(filtrarMaiorde50)
 let receitaDia = vetorPedidos.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0)
 
 console.clear()
